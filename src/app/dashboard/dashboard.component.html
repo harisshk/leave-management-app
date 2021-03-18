@@ -1,0 +1,40 @@
+<mat-toolbar color="primary" class="tool">
+    <button mat-icon-button (click)="open=!open" >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <h4>AGE</h4>
+   
+      <span class="spacer"></span>
+      <button mat-button (click)="logout()" >
+        Logout
+      </button>
+    </mat-toolbar>
+
+   <mat-sidenav-container>
+       <mat-sidenav [(opened)]='open' class="sidenav" [fixedInViewport]="true">
+        <ul class="list-unstyled sidebar-items">
+            <br><br><br>
+            <li>
+                <a routerLink="/dashboard/home" (click)="open=false" routerLinkActive="active">Home</a>
+              </li>
+            <li>
+              <a routerLink="/dashboard/employee" *ngIf="isAdmin" (click)="open=false" routerLinkActive="active">Employee</a>
+            </li>
+            <li>
+              <a routerLink="/home/leaverequests" (click)="open=false" routerLinkActive="active">Leave Request</a>
+            </li>
+            <li>
+              <a routerLink="/home/leavetypes" routerLinkActive="active">Leave Type</a>
+            </li>
+            <li>
+              <a routerLink="/home/event" routerLinkActive="active">Event</a>
+            </li>
+          </ul>
+       </mat-sidenav>
+
+       <mat-sidenav-content>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+        </mat-sidenav-content>
+   </mat-sidenav-container>

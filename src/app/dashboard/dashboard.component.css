@@ -1,0 +1,57 @@
+.spacer {
+    flex: 1 1 auto;
+}
+mat-toolbar{
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+mat-sidenav-container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+  
+  .sidenav {
+    width: 250px;
+    position: fixed;
+    padding-top:8px;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: rgb(92, 101, 136);
+    color: #fff;
+   
+    overflow: hidden;
+  }
+  .sidenav ul li a {
+    padding: 15px 30px;
+    font-size: 1em;
+    letter-spacing: 0.04em;
+    display: block;
+    color: #fff;
+    cursor: pointer;
+}
+.sidenav ul li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: #7386D5;
+}
+ 
+ 
+  .example-container {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-events {
+    width: 300px;
+    height: 200px;
+    overflow: auto;
+    border: 1px solid #555;
+  }
+ 

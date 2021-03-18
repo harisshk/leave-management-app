@@ -1,0 +1,132 @@
+<div class="row" style="width: 100%;">
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="mx-auto col-md-7 offset-md-2 form-box">
+  
+      <div *ngIf="!!create_employee_msg" [ngClass]="has_error ? 'alert alert-danger': 'alert alert-info'">{{create_employee_msg}}</div>
+  
+      <h4 *ngIf="signuppage" class=" mb-3 form-title"> Signup</h4>
+      <div class="form-group row">
+        <label for="employeeId" class="col-sm-3 col-form-label">EmployeeId &nbsp;<span class="text-danger">*</span></label>
+        <div class="col-sm-9">
+          <input type="text" id="employeeId" formControlName="employeeId" class="form-control" placeholder="employee ID"
+            [ngClass]="{ 'is-invalid': submitted && f.employeeId.errors }" />
+          <div *ngIf="submitted && f.employeeId.errors" class="invalid-feedback">
+            <div *ngIf="f.employeeId.errors.required">employeeId is required</div>
+            <div *ngIf="f.employeeId.errors.minlength">ID should be 12 characters</div>
+            <div *ngIf="f.employeeId.errors.maxlength">ID should be 12 characters</div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="name" class="col-sm-3 col-form-label">Name&nbsp;<span class="text-danger">* </span></label>
+        <div class="col-sm-9">
+          <input type="text" id="name" formControlName="name"  class="form-control"
+            placeholder="Name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required"> Name is required</div>
+            <div *ngIf="f.name.errors.minlength"> Name must be at least 2 characters</div>
+          </div>
+        </div>
+  
+      </div>
+  
+      <div class="form-group row">
+           <label for="password" class="col-sm-3 col-form-label">Employee Type&nbsp;<span class="text-danger">*</span></label>
+        <div class="col-sm-9">
+            
+            <select class="form-control" id="employeeType" formControlName="employeeType" [ngClass]="{ 'is-invalid': submitted && f.employeeType.errors }">
+                <option value="associate">Associate</option>
+                <option value="L1">L1</option>
+                <option value="L2">L2</option>
+                <option value="L3">L3</option>
+              </select>
+          <div *ngIf="submitted && f.employeeType.errors" class="invalid-feedback">
+            <div *ngIf="f.employeeType.errors.required">EmployeeType is required</div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group row">
+        <label for="password" class="col-sm-3 col-form-label">Password&nbsp;<span class="text-danger">*</span></label>
+        <div class="col-sm-9">
+          <input type="password" id="password" formControlName="password" class="form-control" placeholder="Password"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="dob" class="col-sm-3 col-form-label">Dob&nbsp;<span class="text-danger">*</span></label>
+        <div class="col-sm-9">
+          <input type="date" id="dob" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+          <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+            <div *ngIf="f.dob.errors.required">DOB is required</div>
+            
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group row">
+        <label for="phoneNumber" class="col-sm-3 col-form-label">Phone No.&nbsp;<span class="text-danger">*</span></label>
+        <div class="col-sm-9">
+          <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control" placeholder="Phone Number"
+            [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
+          <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
+            <div *ngIf="f.phoneNumber.errors.min">Phone Number must be at least of 10 digits</div>
+            <div *ngIf="f.phoneNumber.errors.max">Phone Number cant be more than 10 digits</div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group row">
+        <label for="email" class="col-sm-3 col-form-label">Email&nbsp;<span class="text-danger">* </span></label>
+        <div class="col-sm-9">
+          <input type="text" id="email" formControlName="email"  class="form-control"
+            placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            
+          </div>
+        </div>
+  
+      </div>
+  
+      
+  
+      <div class="form-group row">
+        <label for="gender" class="col-sm-3 col-form-label">gender &nbsp;<span class="text-danger">* </span></label>
+        <div class="col-sm-9">
+          <mat-radio-group formControlName="gender" class="custom-ngSelect" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button class="pl-2" value="Female">Female</mat-radio-button>
+            <mat-radio-button value="Others">Others</mat-radio-button>
+          </mat-radio-group>
+          <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+            <div *ngIf="f.gender.errors.required">Gender is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="address" class="col-sm-3 col-form-label">Address&nbsp;<span class="text-danger">*</span></label>
+        <div class="col-sm-9">
+          <input type="address" id="address" formControlName="address" class="form-control" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }"/>
+          <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+            <div *ngIf="f.address.errors.required">Address is required</div>
+          </div>
+       
+        </div>
+      </div>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-raised-button style="width:80px" color="primary" class=" btn-block" type="submit">Submit </button>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-raised-button *ngIf="signuppage" style="width:80px" color="primary" class=" btn-block"  routerLink='/login'>Login </button>
+  
+    </form>
+  
+  </div>

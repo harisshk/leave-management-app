@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Url} from './../url/url';
 import jwt_decode from 'jwt-decode';
+import { LeaveService } from '../service/leave.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private url= Url.API_ENDPOINT+'/user';
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private leaveService:LeaveService) { }
   age=0;
   ageConvert(dob:Date){
     const convertAge = new Date(dob);
@@ -44,6 +45,7 @@ export class AuthService {
   logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('userRole');
+    localStorage.removeItem('id');
     return true;
   }
   isLoggedIn(){
@@ -60,6 +62,7 @@ export class AuthService {
    if (this.isLoggedIn()){
       var token = JSON.stringify(localStorage.getItem('token'));
       var decode =Object.values(jwt_decode(token));
+
       if (decode[1]==='user_admin'){
         
         return true
@@ -75,5 +78,20 @@ export class AuthService {
    }
   }
 
+  updateLeave(user:any){
+    const data={
+      _id:user.userId,
+      employeeId:user.employeeId,
+      sickLeaveAlloted:10,
+      sickLeaveTaken:0,
+      annualLeaveAlloted:8,
+annualLeaveTaken:0,
+compensatoryLeaveAlloted: 4,
+compensatoryLeaveTaken :0,
+casualLeaveAlloted:  4,
+casualLeaveTaken  : 0
+    }
+    return this.http.post<any>(Url.API_ENDPOINT+'/leave/postLeave',data)
+  }
 }
 //coommnet

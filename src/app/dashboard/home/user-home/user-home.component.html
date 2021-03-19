@@ -1,47 +1,74 @@
 <div class="container">
     <div class="row">
-      <div class="col-sm">
-       <mat-card>
-           <mat-card-title>Total leave</mat-card-title>
-               <div class="current" [ngStyle]="getOverlayStyle()">
-                 {{ current }}/{{ max }}
+        <div class="col-sm-4">
+            <mat-card>
+                <mat-card-title>Total leave pending</mat-card-title>
+                <div class="current" [ngStyle]="getOverlayStyle()">
+                    {{ current }}/{{ max }}
                 </div>
-                 <round-progress [current]="current" [max]="max" [color]="'#45ccce'"
-                  [background]="'#eaeaea'" [radius]="60" [stroke]="10" 
-                  [rounded]="true" [clockwise]="true" [responsive]="false"
-                   [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0" >
-                   </round-progress> 
+                <round-progress [current]="current" [max]="max" [color]="'#45ccce'" [background]="'#eaeaea'"
+                    [radius]="60" [stroke]="10" [rounded]="true" [clockwise]="true" [responsive]="false"
+                    [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0">
+                </round-progress>
                 <h3>in days</h3>
             </mat-card>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-4">
             <mat-card>
-                <mat-card-title>Total leave</mat-card-title>
-                    <div class="current" [ngStyle]="getOverlayStyle()">
-                      {{ current }}/{{ max }}
-                     </div>
-                      <round-progress [current]="current" [max]="max" [color]="'#45ccce'"
-                       [background]="'#eaeaea'" [radius]="60" [stroke]="10" 
-                       [rounded]="true" [clockwise]="true" [responsive]="false"
-                        [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0" >
-                        </round-progress> 
-                     <h3>in days</h3>
-                 </mat-card>
-             </div>
-             <div class="col-sm">
-                <mat-card>
-                    <mat-card-title>Total leave</mat-card-title>
-                        <div class="current" [ngStyle]="getOverlayStyle()">
-                          {{ current }}/{{ max }}
-                         </div>
-                          <round-progress [current]="current" [max]="max" [color]="'#45ccce'"
-                           [background]="'#eaeaea'" [radius]="60" [stroke]="10" 
-                           [rounded]="true" [clockwise]="true" [responsive]="false"
-                            [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0" >
-                            </round-progress> 
-                         <h3>in days</h3>
-                     </mat-card>
-                 </div>
+                <mat-card-title>Annual Leave Pending</mat-card-title>
+                <div class="current" [ngStyle]="getOverlayStyle()">
+                    {{ annualcurrent }}/{{ annualmax }}
+                </div>
+                <round-progress [current]="annualcurrent" [max]="annualmax" [color]="'#45ccce'" [background]="'#eaeaea'"
+                    [radius]="60" [stroke]="10" [rounded]="true" [clockwise]="true" [responsive]="false"
+                    [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0">
+                </round-progress>
+                <h3>in days</h3>
+            </mat-card>
+        </div>
+        <div class="col-sm-4">
+            <mat-card>
+                <mat-card-title>Sick leave Pending</mat-card-title>
+                <div class="current" [ngStyle]="getOverlayStyle()">
+                    {{ sickcurrent }}/{{ sickmax }}
+                </div>
+                <round-progress [current]="sickcurrent" [max]="sickmax" [color]="'#45ccce'" [background]="'#eaeaea'"
+                    [radius]="60" [stroke]="10" [rounded]="true" [clockwise]="true" [responsive]="false"
+                    [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0">
+                </round-progress>
+                <h3>in days</h3>
+            </mat-card>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-4">
+            <mat-card>
+                <mat-card-title>Compensatory leave Pending</mat-card-title>
+                <div class="current" [ngStyle]="getOverlayStyle()">
+                    {{ compcurrent }}/{{ compmax }}
+                </div>
+                <round-progress [current]="compcurrent" [max]="compmax" [color]="'#45ccce'" [background]="'#eaeaea'"
+                    [radius]="60" [stroke]="10" [rounded]="true" [clockwise]="true" [responsive]="false"
+                    [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0">
+                </round-progress>
+                <h3>in days</h3>
+            </mat-card>
+        </div>
 
-  </div>
+        <div class="col-sm-4">
+            <mat-card>
+                <mat-card-title>Casual leave Pending</mat-card-title>
+                <div class="current" [ngStyle]="getOverlayStyle()">
+                    {{ casualcurrent }}/{{ casualmax }}
+                </div>
+                <round-progress [current]="casualcurrent" [max]="casualmax" [color]="'#45ccce'" [background]="'#eaeaea'"
+                    [radius]="60" [stroke]="10" [rounded]="true" [clockwise]="true" [responsive]="false"
+                    [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0">
+                </round-progress>
+                <h3>in days</h3>
+            </mat-card>
+        </div>
+
+    </div>
 </div>

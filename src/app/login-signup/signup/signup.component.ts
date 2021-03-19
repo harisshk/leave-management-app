@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 
@@ -19,7 +20,7 @@ export class SignupComponent implements OnInit {
   submitted = false;
   registerForm: FormGroup|any;
   
-  constructor(private formBuilder: FormBuilder,private auth :AuthService) {
+  constructor(private formBuilder: FormBuilder,private auth :AuthService,private router:Router) {
     if(this.auth.isLoggedIn()){
       this.signuppage=false
     }
@@ -52,9 +53,19 @@ export class SignupComponent implements OnInit {
       return;
     }
     this.auth.signup(this.registerForm.value).subscribe(res =>{
-      window.alert(res)
+     this.updateLeave(res);
+      console.log(res)
     })
   }
+  updateLeave(data:any){
+    this.auth.updateLeave(data).subscribe(res=> {
+      // console.log("LEave",res)
+      this.isSelectLoading=true,
+      this.submitted=true,
+      this.registerForm=null
+      this.router.navigate(['/login']);
+    })
 
+  }
 
 }

@@ -1,1 +1,45 @@
-<p>user-home works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+       <mat-card>
+           <mat-card-title>Total leave</mat-card-title>
+               <div class="current" [ngStyle]="getOverlayStyle()">
+                 {{ current }}/{{ max }}
+                </div>
+                 <round-progress [current]="current" [max]="max" [color]="'#45ccce'"
+                  [background]="'#eaeaea'" [radius]="60" [stroke]="10" 
+                  [rounded]="true" [clockwise]="true" [responsive]="false"
+                   [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0" >
+                   </round-progress> 
+                <h3>in days</h3>
+            </mat-card>
+        </div>
+        <div class="col-sm">
+            <mat-card>
+                <mat-card-title>Total leave</mat-card-title>
+                    <div class="current" [ngStyle]="getOverlayStyle()">
+                      {{ current }}/{{ max }}
+                     </div>
+                      <round-progress [current]="current" [max]="max" [color]="'#45ccce'"
+                       [background]="'#eaeaea'" [radius]="60" [stroke]="10" 
+                       [rounded]="true" [clockwise]="true" [responsive]="false"
+                        [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0" >
+                        </round-progress> 
+                     <h3>in days</h3>
+                 </mat-card>
+             </div>
+             <div class="col-sm">
+                <mat-card>
+                    <mat-card-title>Total leave</mat-card-title>
+                        <div class="current" [ngStyle]="getOverlayStyle()">
+                          {{ current }}/{{ max }}
+                         </div>
+                          <round-progress [current]="current" [max]="max" [color]="'#45ccce'"
+                           [background]="'#eaeaea'" [radius]="60" [stroke]="10" 
+                           [rounded]="true" [clockwise]="true" [responsive]="false"
+                            [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0" >
+                            </round-progress> 
+                         <h3>in days</h3>
+                     </mat-card>
+                 </div>
+  </div>

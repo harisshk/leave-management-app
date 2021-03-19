@@ -32,6 +32,8 @@ import { EmployeeListComponent } from './dashboard/employee/employee-list/employ
 import { HttpInterceptorService } from './auth/http-interceptor.service';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,7 @@ import {MatSortModule} from '@angular/material/sort';
     MatButtonModule,
     MatFormFieldModule,FormsModule,RouterModule,MatInputModule,MatSidenavModule,MatTableModule,MatRadioModule,
     MatIconModule,ReactiveFormsModule,FormsModule,BrowserAnimationsModule,MatSelectModule,MatDatepickerModule,HttpClientModule,
-    MatToolbarModule,MatTabsModule,MatPaginatorModule,MatSortModule
+    MatToolbarModule,MatTabsModule,MatPaginatorModule,MatSortModule,RoundProgressModule,MatCardModule
   ],
   providers: [AuthService,AuthGuard,AdminAuthGuard,
     {

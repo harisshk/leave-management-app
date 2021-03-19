@@ -1,0 +1,15 @@
+.progress-wrapper {
+    position: relative;
+    margin: 20px auto;
+    font-size: 20px;
+  }
+  
+  .current {
+    position: absolute;
+    color: #bbb;
+    font-weight: 20;
+    line-height: 1;
+  }
+  round-progress {
+    margin: auto;
+  }
